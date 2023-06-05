@@ -1,6 +1,7 @@
 #include <iostream>
 using namespace std;
 
+// Basic structure
 struct Node
 {
     int key;
@@ -13,6 +14,7 @@ struct Node
     }
 };
 
+// in order travarsal
 void inOrderTravarsal(Node *root)
 {
     if (root != NULL)
@@ -23,6 +25,7 @@ void inOrderTravarsal(Node *root)
     }
 }
 
+// pre order travarsal
 void preOrderTravarsal(Node *root)
 {
     if (root != NULL)
@@ -33,6 +36,7 @@ void preOrderTravarsal(Node *root)
     }
 }
 
+// post order travarsal
 void postOrderTravarsal(Node *root)
 {
     if (root != NULL)
@@ -43,6 +47,16 @@ void postOrderTravarsal(Node *root)
     }
 }
 
+// height of a tree
+int height(Node *root)
+{
+    if (root == NULL)
+    {
+        return 0;
+    }
+
+    return 1 + max(height(root->left), height(root->right));
+}
 int main()
 {
     Node *root = new Node(10);
@@ -59,5 +73,6 @@ int main()
     cout << endl;
     postOrderTravarsal(root);
     cout << endl;
+    cout << height(root);
     return 0;
 }
